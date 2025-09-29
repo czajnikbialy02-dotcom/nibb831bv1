@@ -31,5 +31,3 @@ if not getgenv().HWIDAuthorized then
 	game.Players.LocalPlayer:Kick("Unauthorized HWID. Access denied.")
 	return
 end
-
-api:notify("Initialized successfully!", 5)
