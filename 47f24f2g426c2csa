@@ -1,0 +1,35 @@
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+-- 🔹 HWID Authorization
+local allowedHWIDs = {
+	"F2F01DA8-247F-4F21-A509-E67300A7ED33",
+	"CDBB98E9-BB7D-440B-864E-0F60F4C44196",
+	"HWID_1122334455"
+}
+
+local function getHWID()
+	local success, hwid = pcall(function()
+		return game:GetService("RbxAnalyticsService"):GetClientId()
+	end)
+	return (success and hwid) or "Unknown_HWID"
+end
+
+local function checkHWID()
+	local userHWID = getHWID()
+	for _, hwid in ipairs(allowedHWIDs) do
+		if userHWID == hwid then
+			return true
+		end
+	end
+	return false
+end
+
+getgenv().HWIDAuthorized = checkHWID()
+
+if not getgenv().HWIDAuthorized then
+	game.Players.LocalPlayer:Kick("Unauthorized HWID. Access denied.")
+	return
+end
+
+api:notify("Initialized successfully!", 5)
