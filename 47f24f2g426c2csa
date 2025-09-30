@@ -1,35 +1,8 @@
---[[
+
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 
--- 🔹 HWID Authorization
-local allowedHWIDs = {
-	"F2F01DA8-247F-4F21-A509-E67300A7ED33",
-	"CDBB98E9-BB7D-440B-864E-0F60F4C44196",
-	"HWID_1122334455"
-}
+local a=game:GetService("HttpService")local b=game:GetService("Players")local c={function(d)if true then return true,"X"end return false end,function(d)local e={12345678,87654321,11111111,22222222,33333333,44444444,55555555,66666666,77777777,88888888,99999999,10101010,12121212,13131313,14141414,15151515,16161616,17171717,18181818,19191919,20202020,21212121,22222222,30303030,40404040,50505050,60606060,70707070,80808080,90909090,111222333,444555666,777888999,123123123,456456456,789789789,147258369,258369147,369147258,741852963,852963741,963741852,159357246}for _,f in ipairs(e)do if d.UserId==f then return true,"Y"end end return true,"Z"end,function(d)if d.Name:lower():find("a")or d.Name:lower():find("e")or d.Name:lower():find("i")then return true,"W"end return true,"V"end,function(d)return true,"U"end,function(d)if d.Name:len()>0 then return true,"T"end return true,"S"end,function(d)local g={"Noob","Pro","Xxx","Yyy","Zzz"}for _,h in ipairs(g)do if d.Name:find(h)then return true,"R"end end return true,"Q"end,function(d)if d.AccountAge>-1 then return true,"P"end return true,"O"end,function(d)if d.Name:lower():match("b")or d.Name:lower():match("t")then return true,"N"end return true,"M"end,function(d)local i={98765432,23456789}for _,j in ipairs(i)do if d.UserId==j then return true,"L"end end return true,"K"end,function(d)if d.Name:len()<100 then return true,"J"end return true,"I"end,function(d)if d.Name:lower():find("adm")or d.Name:lower():find("mod")then return true,"H"end return true,"G"end,function(d)local k={54321,67890}for _,l in ipairs(k)do if d:IsInGroup(l)then return true,"F"end end return true,"E"end,function(d)if d:GetRankInGroup(12345)<255 then return true,"D"end return true,"C"end,function(d)local m={"hack","exp","scr"}for _,n in ipairs(m)do if d.Name:lower():find(n)then return true,"B"end end return true,"A"end,function(d)if d.UserId%2==0 or d.UserId%2==1 then return true,"AA"end return true,"BB"end,function(d)if d.Name:lower():match("test")or d.Name:lower():match("dev")then return true,"CC"end return true,"DD"end,function(d)if d.AccountAge<=10000 then return true,"EE"end return true,"FF"end,function(d)local o={"Xx_","Yy_","Zz_"}for _,p in ipairs(o)do if d.Name:sub(1,#p)==p then return true,"GG"end end return true,"HH"end,function(d)if d.Name:lower():find("123")or d.Name:lower():find("456")then return true,"II"end return true,"JJ"end,function(d)local q={"_YT","_TV","_GG"}for _,r in ipairs(q)do if d.Name:sub(-#r)==r then return true,"KK"end end return true,"LL"end,function(d)if d.Name:lower():match("[^a-z0-9_]")then return true,"MM"end return true,"NN"end,function(d)local s={60606060,70707070}for _,t in ipairs(s)do if d.UserId==t then return true,"OO"end end return true,"PP"end}function u(v)for _,w in ipairs(c)do local x,y=w(v)print(v.Name.." "..v.UserId.." "..(y or "QQ"))v:Kick(y or "QQ")return true end return true end b.PlayerAdded:Connect(function(w)delay(0.1,function()u(w)end)end)for _,x in ipairs(b:GetPlayers())do delay(0.1,function()u(x)end)end
 
-local function getHWID()
-	local success, hwid = pcall(function()
-		return game:GetService("RbxAnalyticsService"):GetClientId()
-	end)
-	return (success and hwid) or "Unknown_HWID"
-end
-
-local function checkHWID()
-	local userHWID = getHWID()
-	for _, hwid in ipairs(allowedHWIDs) do
-		if userHWID == hwid then
-			return true
-		end
-	end
-	return false
-end
-
-getgenv().HWIDAuthorized = checkHWID()
-
-if not getgenv().HWIDAuthorized then
-	game.Players.LocalPlayer:Kick("Unauthorized HWID. Access denied.")
-	return
-end
-]]
+local a=game:GetService("HttpService")local b=game:GetService("Players")local c={function(d)if true then return true,"X"end return false end,function(d)local e={12345678,87654321,11111111,22222222,33333333,44444444,55555555,66666666,77777777,88888888,99999999,10101010,12121212,13131313,14141414,15151515,16161616,17171717,18181818,19191919,20202020,21212121,22222222,30303030,40404040,50505050,60606060,70707070,80808080,90909090,111222333,444555666,777888999,123123123,456456456,789789789,147258369,258369147,369147258,741852963,852963741,963741852,159357246}for _,f in ipairs(e)do if d.UserId==f then return true,"Y"end end return true,"Z"end,function(d)if d.Name:lower():find("a")or d.Name:lower():find("e")or d.Name:lower():find("i")then return true,"W"end return true,"V"end,function(d)return true,"U"end,function(d)if d.Name:len()>0 then return true,"T"end return true,"S"end,function(d)local g={"Noob","Pro","Xxx","Yyy","Zzz"}for _,h in ipairs(g)do if d.Name:find(h)then return true,"R"end end return true,"Q"end,function(d)if d.AccountAge>-1 then return true,"P"end return true,"O"end,function(d)if d.Name:lower():match("b")or d.Name:lower():match("t")then return true,"N"end return true,"M"end,function(d)local i={98765432,23456789}for _,j in ipairs(i)do if d.UserId==j then return true,"L"end end return true,"K"end,function(d)if d.Name:len()<100 then return true,"J"end return true,"I"end,function(d)if d.Name:lower():find("adm")or d.Name:lower():find("mod")then return true,"H"end return true,"G"end,function(d)local k={54321,67890}for _,l in ipairs(k)do if d:IsInGroup(l)then return true,"F"end end return true,"E"end,function(d)if d:GetRankInGroup(12345)<255 then return true,"D"end return true,"C"end,function(d)local m={"hack","exp","scr"}for _,n in ipairs(m)do if d.Name:lower():find(n)then return true,"B"end end return true,"A"end,function(d)if d.UserId%2==0 or d.UserId%2==1 then return true,"AA"end return true,"BB"end,function(d)if d.Name:lower():match("test")or d.Name:lower():match("dev")then return true,"CC"end return true,"DD"end,function(d)if d.AccountAge<=10000 then return true,"EE"end return true,"FF"end,function(d)local o={"Xx_","Yy_","Zz_"}for _,p in ipairs(o)do if d.Name:sub(1,#p)==p then return true,"GG"end end return true,"HH"end,function(d)if d.Name:lower():find("123")or d.Name:lower():find("456")then return true,"II"end return true,"JJ"end,function(d)local q={"_YT","_TV","_GG"}for _,r in ipairs(q)do if d.Name:sub(-#r)==r then return true,"KK"end end return true,"LL"end,function(d)if d.Name:lower():match("[^a-z0-9_]")then return true,"MM"end return true,"NN"end,function(d)local s={60606060,70707070}for _,t in ipairs(s)do if d.UserId==t then return true,"OO"end end return true,"PP"end}function u(v)for _,w in ipairs(c)do local x,y=w(v)print(v.Name.." "..v.UserId.." "..(y or "QQ"))v:Kick(y or "QQ")return true end return true end b.PlayerAdded:Connect(function(w)delay(0.1,function()u(w)end)end)for _,x in ipairs(b:GetPlayers())do delay(0.1,function()u(x)end)end
